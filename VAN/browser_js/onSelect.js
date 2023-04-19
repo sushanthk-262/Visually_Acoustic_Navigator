@@ -1,9 +1,9 @@
 let msg = new SpeechSynthesisUtterance();
 let voices = speechSynthesis.getVoices();
 msg.voice = voices[0];
-let tags = document.querySelectorAll('p,a,h1,h2,h3,button'); // add more tags
+let tags = document.querySelectorAll("*"); // add more tags
 tags.forEach((tag) => {
-    tag.addEventListener('click', (e) => {
+    tag.addEventListener('focus', (e) => {
         
         msg.text = e.target.innerText;
         tag.style.backgroundColor = "yellow";

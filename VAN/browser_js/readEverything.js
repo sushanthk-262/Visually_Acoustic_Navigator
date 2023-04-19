@@ -37,7 +37,10 @@ screenReader.readPage = function() {
 // Add a button to the page to trigger the screen reader
 var button = document.createElement("button");
 button.innerHTML = "Read Page";
-document.addEventListener("keydown", function() {
-  screenReader.readPage();
+var elements = document.querySelectorAll("*");
+
+elements[0].addEventListener("focus", function() {
+  screenReader.readElement(elements[0]);
+  //screenReader.readPage();
 });
 document.body.appendChild(button);
