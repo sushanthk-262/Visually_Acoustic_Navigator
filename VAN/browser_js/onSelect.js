@@ -17,4 +17,18 @@ tags.forEach((tag) => {
         }, 100);
         
     });
+    tag.addEventListener('select', (e) => {
+        
+        msg.text = e.target.innerText;
+        tag.style.backgroundColor = "yellow";
+        speechSynthesis.speak(msg);
+        
+        let interval = setInterval(() => {
+            if(!speechSynthesis.speaking){
+                tag.style.removeProperty('background-color');
+                clearInterval(interval);
+            }
+        }, 100);
+        
+    });
 });
